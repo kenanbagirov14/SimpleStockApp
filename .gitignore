@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+
+# Build nəticələri
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code (istəsən)
+.idea/
+.vscode/
