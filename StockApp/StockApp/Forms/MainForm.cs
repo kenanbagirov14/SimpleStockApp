@@ -83,7 +83,9 @@ public class MainForm : Form
             Text = "Əlavə et",
             Left = 400,
             Top = 56,
-            Width = 100
+            Width = 100,
+            Height = 35
+            
         };
 
         btnAddProduct.Click += BtnAddProduct_Click;
@@ -94,6 +96,7 @@ public class MainForm : Form
             Left = 510,
             Top = 56,
             Width = 100,
+            Height = 35,
             Enabled = false
         };
 
@@ -105,6 +108,7 @@ public class MainForm : Form
             Left = 620,
             Top = 56,
             Width = 100,
+            Height = 35,
             Enabled = false
         };
 
@@ -145,6 +149,7 @@ public class MainForm : Form
             Left = 270,
             Top = 140,
             Width = 120,
+            Height = 35,
             Enabled = false
         };
 
@@ -156,6 +161,7 @@ public class MainForm : Form
             Left = 400,
             Top = 140,
             Width = 120,
+            Height = 35,
             Enabled = false
         };
 
@@ -167,6 +173,7 @@ public class MainForm : Form
             Text = "Excel export",
             Left = 540,
             Top = 140,
+            Height = 35,
             Width = 120
         };
 
@@ -177,6 +184,7 @@ public class MainForm : Form
             Text = "DB backup",
             Left = 670,
             Top = 140,
+            Height = 35,
             Width = 120
         };
 
@@ -188,6 +196,7 @@ public class MainForm : Form
             Text = "DB Restore",
             Left = 800,
             Top = 140,
+            Height = 35,
             Width = 120
         };
 
@@ -198,6 +207,7 @@ public class MainForm : Form
             Text = "Təmizlə",
             Left = 730,
             Top = 56,
+            Height = 35,
             Width = 100
         };
 
@@ -315,6 +325,7 @@ public class MainForm : Form
     {
         var barcode = txtBarcode.Text.Trim();
         var name = txtProductName.Text.Trim();
+        var quantity = numQuantity.Text.Trim();
 
         if (!ValidateBarcode(barcode))
             return;
@@ -332,7 +343,7 @@ public class MainForm : Form
                 return;
             }
 
-            _productService.AddProduct(barcode, name);
+            _productService.AddProduct(barcode, name, quantity);
 
             MessageBox.Show("Məhsul əlavə edildi.");
 

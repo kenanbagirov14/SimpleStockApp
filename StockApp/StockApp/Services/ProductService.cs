@@ -6,7 +6,7 @@ namespace StockApp.Services;
 
 public class ProductService
 {
-    public void AddProduct(string barcode, string name)
+    public void AddProduct(string barcode, string name,string quayntity)
     {
         using var connection = new SqliteConnection(Database.ConnectionString);
         connection.Open();
@@ -15,11 +15,12 @@ public class ProductService
         command.CommandText =
         @"
         INSERT INTO Products (Barcode, Name, Quantity, CreatedDate)
-        VALUES ($barcode, $name, 0, $createdDate);
+        VALUES ($barcode, $name, $quayntity, $createdDate);
         ";
 
         command.Parameters.AddWithValue("$barcode", barcode);
         command.Parameters.AddWithValue("$name", name);
+        command.Parameters.AddWithValue("$quayntity", quayntity);
         command.Parameters.AddWithValue("$createdDate", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
         command.ExecuteNonQuery();
